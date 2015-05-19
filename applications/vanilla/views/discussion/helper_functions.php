@@ -405,13 +405,14 @@ function WriteCommentForm() {
 		?>
 		<div class="Foot Closed">
 			<div class="Note Closed SignInOrRegister"><?php 
+            /* edited by fcheslack */
 			   $Popup =  (C('Garden.SignIn.Popup')) ? ' class="Popup"' : '';
             echo FormatString(
-               T('Sign In or Register to Comment.', '<a href="{SignInUrl,html}"{Popup}>Sign In</a> or <a href="{RegisterUrl,html}">Register</a> to comment.'), 
+               T('Sign In or Register to Comment.', '<a href="{SignInUrl,html}">Sign In</a> or <a href="{RegisterUrl,html}">Register</a> to comment.'), 
                array(
-                  'SignInUrl' => Url(SignInUrl(Url(''))),
-                  'RegisterUrl' => Url(RegisterUrl(Url(''))),
-                  'Popup' => $Popup
+                  'SignInUrl' => Gdn::Config("Zotero.BaseUrl", "") . "/user/login", // Url(SignInUrl(Url(''))),
+                  'RegisterUrl' => Gdn::Config("Zotero.BaseUrl", "") . "/user/register", //Url(RegisterUrl(Url(''))),
+                  //'Popup' => $Popup
                )
             ); ?>
          </div>
