@@ -757,6 +757,7 @@ if (!function_exists('UserPhoto')) {
     * @param array $Options 
     */
    function UserPhoto($User, $Options = array()) {
+      return '';
       if (is_string($Options))
          $Options = array('LinkClass' => $Options);
       
